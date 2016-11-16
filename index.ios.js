@@ -5,49 +5,41 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry,DeviceEventEmitter,Image,NavigatorIOS,ScrollView,StatusBar,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
+import Util from './utils/utils.js'
+import MainView from './components/mainview.js'
 
 export default class day4 extends Component {
+
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        <NavigatorIOS
+            ref='nav'
+            style={styles.container}
+            initialRoute={{
+                title:"React native coach",
+                component: MainView,
+                //backButtonTitle: 'back',
+                shadowHidden: true,
+            }}
+            itemWrapperStyle={styles.itemWrapper}
+            tintColor="#777"
+        />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  container:{
+    flex:1,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  itemWrapper:{
+    backgroundColor: '#f3f3f3'
+  }
 });
 
 AppRegistry.registerComponent('day4', () => day4);
