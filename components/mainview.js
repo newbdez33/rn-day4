@@ -1,6 +1,7 @@
 'use strict';
 import React,{ Component } from 'react';
 import { StyleSheet,Text,TouchableHighlight,View,ScrollView,Image } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Util from '../utils/utils.js'
 import TwitterDemo from './twitter.js'
 
@@ -13,10 +14,10 @@ export default class MainView extends Component {
           title:"Twitter Demo",
           component: TwitterDemo,
           isFA: false,
-          icon: "social-twitter",
+          icon: "logo-twitter",
           size:50,
           color:"#2aa2ef",
-          hideNav: false,
+          hideNav: true,
       }]
     }
   }
@@ -36,6 +37,7 @@ export default class MainView extends Component {
         <TouchableHighlight key={elem.key} style={[styles.touchBox, index%3==2?styles.touchBox2:styles.touchBox1]} underlayColor="#eee" onPress={()=> onThis._jumpToDay(index)}>
             <View style={styles.boxContainer}>
                 <Text style={styles.boxText}>{elem.title}</Text>
+                <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></Icon>
           </View>
         </TouchableHighlight>
       );
