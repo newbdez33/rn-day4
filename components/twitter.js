@@ -20,22 +20,22 @@ class Entrance extends Component{
   }
 
   componentDidMount() {
-    // Animated.timing(
-    //    this.state.transformAnim,
-    //    {toValue: 50,
-    //     duration: 1200,
-    //     delay:2000,
-    //     easing: Easing.elastic(2),
-    //   },
-    // ).start();
-    // Animated.timing(
-    //    this.state.opacityAnim,
-    //    {toValue: 0,
-    //     duration: 800,
-    //     easing: Easing.elastic(1),
-    //     delay:2200,
-    //   },
-    //  ).start();
+    Animated.timing(
+       this.state.transformAnim,
+       {toValue: 50,
+        duration: 1200,
+        delay:2000,
+        easing: Easing.elastic(2),
+      },
+    ).start();
+    Animated.timing(
+       this.state.opacityAnim,
+       {toValue: 0,
+        duration: 800,
+        easing: Easing.elastic(1),
+        delay:2200,
+      },
+     ).start();
     setTimeout(() => {
       this.props.hideThis();
     }, 3300);
